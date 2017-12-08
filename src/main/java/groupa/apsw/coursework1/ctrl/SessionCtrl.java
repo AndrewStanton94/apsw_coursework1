@@ -21,15 +21,6 @@ public class SessionCtrl implements Serializable {
     private SystemUser su;
     private String givenUsername;
     private String givenPassword;
-    private SystemUser currentUser;
-
-    public SystemUser getCurrentUser() {
-        return currentUser;
-    }
-
-    public void setCurrentUser(SystemUser currentUser) {
-        this.currentUser = currentUser;
-    }
 
     public String getGivenUsername() {
         return givenUsername;
@@ -70,7 +61,9 @@ public class SessionCtrl implements Serializable {
         return "editProfileView";
     }
 
-    public String gotoView() {
+    public String updateUser() {
+        System.out.println(su.getFirstName());
+        su = um.updateUser(su);
         return "dashboardView";
     }
 
@@ -90,9 +83,10 @@ public class SessionCtrl implements Serializable {
     }
 
     public String login() {
-        boolean valid = um.validUser(givenUsername, givenPassword);
+        boolean valid = um.isValidUser(givenUsername, givenPassword);
         
         if (valid) {
+            su = um.getCurrentUser();
             return "dashboardView";
         } else {
             return "";
