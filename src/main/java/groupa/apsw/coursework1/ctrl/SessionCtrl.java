@@ -10,13 +10,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import org.primefaces.event.ScheduleEntryMoveEvent;
-import org.primefaces.event.ScheduleEntryResizeEvent;
-import org.primefaces.event.SelectEvent;
 import org.primefaces.model.DefaultScheduleEvent;
 import org.primefaces.model.DefaultScheduleModel;
-import org.primefaces.model.LazyScheduleModel;
-import org.primefaces.model.ScheduleEvent;
 import org.primefaces.model.ScheduleModel;
 
 /**
@@ -36,10 +31,19 @@ public class SessionCtrl implements Serializable {
     private String givenPassword;
     
     private ScheduleModel appointmentModel;
-    private ScheduleModel lazyAppointmentModel;
     
-   
+    @PostConstruct
+    public void init() {
+        appointmentModel = new DefaultScheduleModel();
+        for(int i = 1; i < am.getAppointments().size(); i++) {
+        appointmentModel.addEvent(new DefaultScheduleEvent(am.getAppointments().get(i).getAppointmentName(), am.getAppointments().get(i).getStartTime(), am.getAppointments().get(i).getEndTime()));
+        }
+    }
 
+    public ScheduleModel getAppointmentModel() {
+        return appointmentModel;
+    }
+    
     public String getGivenUsername() {
         return givenUsername;
     }
