@@ -25,11 +25,11 @@
                         <h:inputText value="#{sessionCtrl2.su.lastName}" />
 
                         <h2>Start Time: </h2>
-                        <h:inputText value="#{sessionCtrl2.su.password}" />
                         
+                        <p:calendar value="#{item.dateFrom}" pattern="dd.MM.yyyy HH:mm" />
 
                         <h2>End Date: </h2>
-                        <h:inputText value="#{sessionCtrl2.su.password}" />
+                        <p:calendar value="#{item.dateFrom}" pattern="dd.MM.yyyy HH:mm" />
 
                         <h2>End Time: </h2>
                         <h:inputText value="#{sessionCtrl2.su.password}" />
@@ -63,7 +63,7 @@
                     </p:column>
 
                     <p:column headerText="Add to event" sortBy="#{usr.email}">
-                        <f:selectItem itemValue="1"/>
+                        <p:selectBooleanCheckbox value="1"/>
                     </p:column>
                 </p:dataTable>
                 <h:commandButton action="#{sessionCtrl2.gotoDashboard}" value="Cancel" />
