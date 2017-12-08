@@ -19,7 +19,7 @@ public class SessionCtrl implements Serializable {
     @EJB
     private UserManager um;
     private SystemUser su;
-    private String givenUserName;
+    private String givenUsername;
     private String givenPassword;
     private SystemUser currentUser;
 
@@ -31,12 +31,12 @@ public class SessionCtrl implements Serializable {
         this.currentUser = currentUser;
     }
 
-    public String getGivenUserName() {
-        return givenUserName;
+    public String getGivenUsername() {
+        return givenUsername;
     }
 
-    public void setGivenUserName(String givenUserName) {
-        this.givenUserName = givenUserName;
+    public void setGivenUsername(String givenUsername) {
+        this.givenUsername = givenUsername;
     }
 
     public String getGivenPassword() {
@@ -90,12 +90,9 @@ public class SessionCtrl implements Serializable {
     }
 
     public String login() {
-        boolean valid = um.validUser();
-        SystemUser su = um.mockUsers().get(0);
-        boolean nameMatches = su.getUsername().equalsIgnoreCase(givenUserName);
-        boolean passwordMatches = su.getPassword().equals(givenPassword);
-        boolean allowAccess = nameMatches && passwordMatches;
-        if (allowAccess) {
+        boolean valid = um.validUser(givenUsername, givenPassword);
+        
+        if (valid) {
             return "dashboardView";
         } else {
             return "";

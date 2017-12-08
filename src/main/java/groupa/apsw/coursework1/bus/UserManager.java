@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -57,7 +58,14 @@ public class UserManager {
         users.add(su);
     }
     
-    public boolean validUser(){
-        return true;
+    public boolean validUser(String username, String password){
+        TypedQuery<SystemUser> query = suf.getEntityManager().createNamedQuery("SystemUser.findByUserName", SystemUser.class);
+        SystemUser su = query.setParameter("username", username).getSingleResult();
+        System.out.println(su);
+        if (su == null) {
+            return false;
+        } else {
+            return su.getPassword().equals(password);
+        }
     }
 }

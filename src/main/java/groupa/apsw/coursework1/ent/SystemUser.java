@@ -1,6 +1,7 @@
 package groupa.apsw.coursework1.ent;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,7 @@ import javax.validation.constraints.Size;
  * @author alpha
  */
 @Entity
-@NamedQuery(name="SystemUser.findByUserName", query="SELECT su FROM SystemUser su WHERE su.username LIKE :userName")
+@NamedQuery(name="SystemUser.findByUserName", query="SELECT su FROM SystemUser su WHERE su.username LIKE :username")
 public class SystemUser implements Serializable {
 
     private Long id;
@@ -55,6 +56,7 @@ public class SystemUser implements Serializable {
         this.id = id;
     }
 
+    @Column(unique = true)
     public String getUsername() {
         return username;
     }
