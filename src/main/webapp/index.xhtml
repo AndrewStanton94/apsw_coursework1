@@ -13,9 +13,15 @@
         <ui:composition template="/WEB-INF/templates/masterTemplate.xhtml" >
             <ui:define name="content">
                 <h:form>
-                    <h:commandButton action="#{sessionCtrl2.generateData}" value="Generate data" />
-                    <h:commandButton action="#{sessionCtrl2.gotoLogin}" value="Log in" />
-                    <h:commandButton action="#{sessionCtrl2.gotoRegistration}" value="register" />
+                    <center>
+                        <p:commandButton action="#{sessionCtrl2.generateData}" value="Generate data" />
+                        <br />
+                        <br />
+                        <p:commandButton action="#{sessionCtrl2.gotoLogin}" value="Log in" />
+                        <br />
+                        <br />
+                        <p:commandButton action="#{sessionCtrl2.gotoRegistration}" value="Register new user" />
+                    </center>
                 </h:form>
             </ui:define>
         </ui:composition>

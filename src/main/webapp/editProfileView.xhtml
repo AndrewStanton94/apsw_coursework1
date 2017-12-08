@@ -14,25 +14,47 @@
             <ui:define name="content">
                 <h:form>
                     
-                    <h:panelGrid columns="2" class = "heading2">
-                    <h:inputText value="#{sessionCtrl2.su.id}" />
-                    <h:inputText value="#{sessionCtrl2.su.firstName}" />
-                    <h:inputText value="#{sessionCtrl2.su.lastName}" />
+                    <h1>First name: </h1>
+                        <h:inputText id="firstName" value="#{sessionCtrl2.su.firstName}" />
 
-                    <h:inputText value="#{sessionCtrl2.su.password}" />
-                    <h:inputText value="#{sessionCtrl2.su.phoneNumber}" />
-                    <h:inputText value="#{sessionCtrl2.su.username}" />
+                        <h1>Last name: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.lastName}" />
 
-                    <h:inputText value="#{sessionCtrl2.su.address.company}" />
-                    <h:inputText value="#{sessionCtrl2.su.address.firstLine}" />
-                    <h:inputText value="#{sessionCtrl2.su.address.secondLine}" />
-                    <h:inputText value="#{sessionCtrl2.su.address.city}" />
-                    <h:inputText value="#{sessionCtrl2.su.address.county}" />
-                    <h:inputText value="#{sessionCtrl2.su.address.country}" />
-                    <h:inputText value="#{sessionCtrl2.su.address.postcode}" />
-                    <h:inputText value="#{sessionCtrl2.su.address.id}" />
+                        <h1>Change password: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.password}" />
+
+                        <h1>Phone number: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.phoneNumber}" />
+
+                        <h1>Username: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.username}" />
+
+                        <h1>Email: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.email}" />
+
+                        <h1>company: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.address.company}" />
+
+                        <h1>first line: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.address.firstLine}" />
+
+                        <h1>second line: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.address.secondLine}" />
+
+                        <h1>city: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.address.city}" />
+
+                        <h1>County: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.address.county}" />
+
+                        <h1>Country: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.address.country}" />
+
+                        <h1>Postcode: </h1>
+                        <h:inputText value="#{sessionCtrl2.su.address.postcode}" />
+  
+
                     <h:commandButton action="#{sessionCtrl2.updateUser}" value="Save changes" />
-                    </h:panelGrid>
                 </h:form>
             </ui:define>
         </ui:composition>

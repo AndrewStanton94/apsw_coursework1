@@ -7,17 +7,20 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Log In</title>
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/templates/masterTemplate.xhtml" >
             <ui:define name="content">
                 <h:form>
-                    <h:outputText value="#{sessionCtrl2.su.username}" />
-                    <h:inputText value="#{sessionCtrl2.givenUsername}" />
-                    <h:outputText value="#{sessionCtrl2.su.password}" />
-                    <h:inputSecret value="#{sessionCtrl2.givenPassword}" />
-                    <h:commandButton action="#{sessionCtrl2.login}" value="Log in" />
+                    <h:panelGrid class="heading2" columns="2" >
+                        <h1>Username: </h1>
+                        <h:inputText value="#{sessionCtrl2.givenUsername}" />
+
+                        <h1>Password: </h1>
+                        <h:inputSecret value="#{sessionCtrl2.givenPassword}" />
+                    </h:panelGrid>
+                    <p:commandButton action="#{sessionCtrl2.login}" value="Log in" />
                 </h:form>
 
 

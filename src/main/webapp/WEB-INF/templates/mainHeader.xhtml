@@ -15,6 +15,7 @@ and open the template in the editor.
         
 	    <ui:composition>
                 <h:outputStylesheet name="css/styles.css"/>
+                <h:form>
                 <div class = "header"> 
                 <h:button value="Go to Dashboard" outcome="dashboardView.xhtml" />
                 <h:outputText value="     Logged in as: " /> <!--set as logged in user's name-->
@@ -22,10 +23,12 @@ and open the template in the editor.
                 
                 <h:button value="View Profile" outcome="editProfileView.xhtml" />
                 <h:button value="Logout" outcome="index.xhtml" />
+                <h:commandButton value="Logout" action="#{sessionCtrl2.logout}" />
 
                 </div>
                 <br />
                 <br />
+                </h:form>
 	    </ui:composition>
     </body>
 </html>

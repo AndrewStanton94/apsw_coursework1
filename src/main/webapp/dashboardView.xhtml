@@ -8,77 +8,46 @@
       xmlns:ui="http://java.sun.com/jsf/facelets" 
       >
     <h:head>
-        <title>Facelet Title</title>
+        <title>Dashboard</title>
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/templates/masterTemplate.xhtml" >
             <ui:define name="content">
 
 
-                <h:outputLabel value="Logged in as: "/>
-                <h:outputText value="#{sessionCtrl2.su.firstName}"/>
+                <center>
+                    <p:commandButton action="#{sessionCtrl2.gotoAddAppointment}" value="Create Event" />
+                    <p:button outcome="lookupView.xhtml" value="Look Up User" />
+                    <p:button outcome="lookupView.xhtml" value="My Appointments" />
+
 
                 <h:form>
-                    <p:growl id="messages" showDetail="true" />
-
                     <h:panelGrid columnClasses="value">
                         <h3 style="margin-top: 0">Your diary</h3>
                         <p:schedule id="schedule" value="#{scheduleView.eventModel}" widgetVar="myschedule" timeZone="GMT+2">
 
                             <p:ajax event="dateSelect" listener="#{scheduleView.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
                             <p:ajax event="eventSelect" listener="#{scheduleView.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
-                            <p:ajax event="eventMove" listener="#{scheduleView.onEventMove}" update="messages" />
-                            <p:ajax event="eventResize" listener="#{scheduleView.onEventResize}" update="messages" />
 
                         </p:schedule>
 
-                        
+
                     </h:panelGrid>
 
-                    <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
+                    <p:dialog widgetVar="eventDialog" header="Event Details" hideEffect="clip" showEffect="clip">
                         <h:panelGrid id="eventDetails" columns="2">
                             <p:outputLabel value="Add a new event?" />
                             <h:commandButton id="addButton" value="Confirm" action="#{sessionCtrl2.gotoAddAppointment}"/>
                         </h:panelGrid>
                     </p:dialog>    
                 </h:form>
+                </center>
 
                 <style type="text/css">
                     .value {
                         width: 1000px;
                     }
                 </style>
-
-
-                <h:form >
-                    <p:dataTable var="usr" value="#{sessionCtrl2.users}">
-                        <f:facet name="header">
-                            People
-                        </f:facet>
-
-                        <p:column headerText="username" sortBy="#{usr.username}">
-                            <h:outputText value="#{usr.username}" />
-                        </p:column>
-
-                        <p:column headerText="First name" sortBy="#{usr.firstName}">
-                            <h:outputText value="#{usr.firstName}" />
-                        </p:column>
-
-                        <p:column headerText="Last name" sortBy="#{usr.lastName}">
-                            <h:outputText value="#{usr.lastName}" />
-                        </p:column>
-
-                        <p:column headerText="Phone number" sortBy="#{usr.phoneNumber}">
-                            <h:outputText value="#{usr.phoneNumber}" />
-                        </p:column>
-
-                        <p:column headerText="Email" sortBy="#{usr.email}">
-                            <h:outputText value="#{usr.email}" />
-                        </p:column>
-                    </p:dataTable>
-                    
-                    <h:commandButton action="#{sessionCtrl2.gotoAddAppointment}" value="Create Event" />
-                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>

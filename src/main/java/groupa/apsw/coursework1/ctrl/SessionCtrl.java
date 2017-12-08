@@ -102,6 +102,10 @@ public class SessionCtrl implements Serializable {
         return "createAppointmentView";
     }
     
+    public String gotoLookup() {
+        return "lookupView";
+    }
+    
     public String login() {
         boolean valid = um.isValidUser(givenUsername, givenPassword);
         
