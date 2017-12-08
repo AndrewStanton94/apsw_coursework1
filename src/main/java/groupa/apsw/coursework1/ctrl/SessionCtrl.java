@@ -61,6 +61,10 @@ public class SessionCtrl implements Serializable {
         return "editProfileView";
     }
 
+    public String gotoDashboard() {
+        return "dashboardView";
+    }
+    
     public String updateUser() {
         System.out.println(su.getFirstName());
         su = um.updateUser(su);
@@ -80,6 +84,10 @@ public class SessionCtrl implements Serializable {
         um.add(su);
         su = um.createEmptyUser();
         return "dashboardView";
+    }
+    
+    public String gotoAddAppointment() {
+        return "createAppointmentView";
     }
 
     public String login() {
