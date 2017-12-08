@@ -27,6 +27,15 @@ public class SessionCtrl implements Serializable {
     @EJB
     private AppointmentManager am;
     private SystemUser su;
+    private Appointment appointment;
+
+    public Appointment getAppointment() {
+        return appointment;
+    }
+
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
+    }
     private String givenUsername;
     private String givenPassword;
 
@@ -89,6 +98,12 @@ public class SessionCtrl implements Serializable {
     public String updateUser() {
         System.out.println(su.getFirstName());
         su = um.updateUser(su);
+        return "dashboardView";
+    }
+    
+    public String addAppointment(){
+        appointment.setOwner(su);
+        am.add(appointment);
         return "dashboardView";
     }
 

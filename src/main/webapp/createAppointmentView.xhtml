@@ -19,16 +19,17 @@
                     <h:panelGrid columns="2" class = "heading2">
 
                         <h2>Event Name: </h2>
-                        <h:inputText id="firstName" value="#{sessionCtrl2.su.firstName}" />
+                        <h:inputText id="firstName" value="#{sessionCtrl2.appointment.appointmentName}" />
 
                         <h2>Creator: </h2>
                         <h:outputText id="creatorName" value="#{sessionCtrl2.su.firstName} #{sessionCtrl2.su.lastName} (#{sessionCtrl2.su.username})" />
-
+                        
                         <h2>Start: </h2>
-                        <p:calendar value="#{item.dateFrom}" pattern="dd.MM.yyyy HH:mm" />
+                        <p:calendar value="#{sessionCtrl2.appointment.startTime}" pattern="dd.MM.yyyy HH:mm" />
 
                         <h2>End Date: </h2>
-                        <p:calendar value="#{item.dateFrom}" pattern="dd.MM.yyyy HH:mm" />
+                        <p:calendar value="#{sessionCtrl2.appointment.endTime}" pattern="dd.MM.yyyy HH:mm" />
+
                     </h:panelGrid>
 
                 </h:form>
@@ -64,7 +65,7 @@
                 <br />
                 <center>
                     <p:commandButton action="#{sessionCtrl2.gotoDashboard}" value="Cancel" />
-                    <p:commandButton action="#{sessionCtrl2.gotoDashboard}" value="Create appointment" />
+                    <p:commandButton action="#{sessionCtrl2.addAppointment}" value="Create appointment" />
                 </center>
             </ui:define>
         </ui:composition>
