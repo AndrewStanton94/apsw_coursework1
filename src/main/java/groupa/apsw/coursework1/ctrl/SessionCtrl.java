@@ -1,12 +1,10 @@
 package groupa.apsw.coursework1.ctrl;
 
 import groupa.apsw.coursework1.bus.UserManager;
-import groupa.apsw.coursework1.ent.Address;
 import groupa.apsw.coursework1.ent.SystemUser;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 
@@ -21,7 +19,6 @@ public class SessionCtrl implements Serializable {
     @EJB
     private UserManager um;
     private SystemUser su;
-    private List<SystemUser> users;
     private String givenUserName;
     private String givenPassword;
     private SystemUser currentUser;
@@ -51,7 +48,7 @@ public class SessionCtrl implements Serializable {
     }
 
     public List<SystemUser> getUsers() {
-        return users;
+        return um.getUsers();
     }
 
     public SystemUser getSu() {
@@ -62,11 +59,10 @@ public class SessionCtrl implements Serializable {
      * Creates a new instance of SessionCtrl2
      */
     public SessionCtrl() {
-        users = new ArrayList<>();
     }
 
     public String generateData() {
-        users = um.mockUsers();
+        um.mockUsers();
         return "";
     }
 
@@ -88,7 +84,7 @@ public class SessionCtrl implements Serializable {
     }
 
     public String registerUser() {
-        users.add(su);
+        um.add(su);
         su = um.createEmptyUser();
         return "dashboardView";
     }
