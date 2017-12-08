@@ -8,7 +8,16 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import org.primefaces.event.ScheduleEntryMoveEvent;
+import org.primefaces.event.ScheduleEntryResizeEvent;
+import org.primefaces.event.SelectEvent;
+import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.DefaultScheduleModel;
+import org.primefaces.model.LazyScheduleModel;
+import org.primefaces.model.ScheduleEvent;
+import org.primefaces.model.ScheduleModel;
 
 /**
  *
@@ -25,6 +34,11 @@ public class SessionCtrl implements Serializable {
     private SystemUser su;
     private String givenUsername;
     private String givenPassword;
+    
+    private ScheduleModel appointmentModel;
+    private ScheduleModel lazyAppointmentModel;
+    
+   
 
     public String getGivenUsername() {
         return givenUsername;
