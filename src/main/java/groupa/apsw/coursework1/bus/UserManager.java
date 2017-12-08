@@ -3,6 +3,7 @@ package groupa.apsw.coursework1.bus;
 import groupa.apsw.coursework1.ent.Address;
 import groupa.apsw.coursework1.ent.SystemUser;
 import groupa.apsw.coursework1.pers.SystemUserFacade;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -24,8 +25,8 @@ public class UserManager {
     }
 
     public UserManager() {
-//        users = new ArrayList<>();
-        users = suf.findAll();
+        users = new ArrayList<>();
+//        users = suf.findAll();
     }
 
     public List<SystemUser> mockUsers() {

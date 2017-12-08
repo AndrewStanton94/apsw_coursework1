@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>
+            <ui:insert name="title">Some title</ui:insert>
+        </title>        
+    </h:head>
+    <h:body>
+        <div id="page">
+            <div id="header-container">
+                <div id="header">
+                    <ui:insert name="header">
+                        <ui:include src="mainHeader.xhtml"/>
+                    </ui:insert>
+                </div>
+            </div>
+
+
+            <div id="content-container">
+                <div id="content">
+                    <br /><br />
+                    <ui:insert name="content" />
+                    <br /><br />
+                </div>
+            </div>
+
+
+            <div id="footer-container">
+                <div id="footer">
+                    <ui:insert name="footer">
+                        <ui:include src="mainFooter.xhtml"/>
+                    </ui:insert>
+
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
