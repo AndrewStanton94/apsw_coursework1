@@ -2,6 +2,7 @@ package groupa.apsw.coursework1.bus;
 
 import groupa.apsw.coursework1.ent.Address;
 import groupa.apsw.coursework1.ent.SystemUser;
+import groupa.apsw.coursework1.pers.AddressFacade;
 import groupa.apsw.coursework1.pers.SystemUserFacade;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,9 @@ public class UserManager {
 
     @EJB
     public SystemUserFacade suf;
+    
+    @EJB
+    public AddressFacade af;
 
     private List<SystemUser> users;
 
@@ -38,6 +42,7 @@ public class UserManager {
         for (SystemUser user : users) {
             suf.create(user);
         }
+        af.create(addr);
         return users;
     }
 

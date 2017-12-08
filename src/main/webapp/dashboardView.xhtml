@@ -14,20 +14,20 @@
         <ui:composition template="/WEB-INF/templates/masterTemplate.xhtml" >
             <ui:define name="content">
                 Hello from Facelets
-        <!--        <h:outputText value="#{sessionCtrl.su.email}" />
-                <h:outputText value="#{sessionCtrl.su.id}" />
+        <!--        <h:outputText value="#{sessionCtrl2.su.email}" />
+                <h:outputText value="#{sessionCtrl2.su.id}" />
                 
-                <h:outputText value="#{sessionCtrl.su.address.city}" />
-                <h:outputText value="#{sessionCtrl.su.address.company}" />
-                <h:outputText value="#{sessionCtrl.su.address.country}" />
-                <h:outputText value="#{sessionCtrl.su.address.county}" />
-                <h:outputText value="#{sessionCtrl.su.address.firstLine}" />
-                <h:outputText value="#{sessionCtrl.su.address.id}" />
-                <h:outputText value="#{sessionCtrl.su.address.postcode}" />
-                <h:outputText value="#{sessionCtrl.su.address.secondLine}" />-->
+                <h:outputText value="#{sessionCtrl2.su.address.city}" />
+                <h:outputText value="#{sessionCtrl2.su.address.company}" />
+                <h:outputText value="#{sessionCtrl2.su.address.country}" />
+                <h:outputText value="#{sessionCtrl2.su.address.county}" />
+                <h:outputText value="#{sessionCtrl2.su.address.firstLine}" />
+                <h:outputText value="#{sessionCtrl2.su.address.id}" />
+                <h:outputText value="#{sessionCtrl2.su.address.postcode}" />
+                <h:outputText value="#{sessionCtrl2.su.address.secondLine}" />-->
 
                 <h:form >
-                    <p:dataTable var="usr" value="#{sessionCtrl.users}">
+                    <p:dataTable var="usr" value="#{sessionCtrl2.users}">
                         <f:facet name="header">
                             People
                         </f:facet>
@@ -52,9 +52,9 @@
                             <h:outputText value="#{usr.email}" />
                         </p:column>
                     </p:dataTable>
-                    <h:commandButton action="#{sessionCtrl.gotoEdit}" value="Go to edit " />
+                    <h:commandButton action="#{sessionCtrl2.gotoEdit}" value="Go to edit " />
 
-                    <h:outputText value="#{sessionCtrl.currentUser.username}" />
+                    <h:outputText value="#{sessionCtrl2.currentUser.username}" />
                 </h:form>
             </ui:define>
         </ui:composition>

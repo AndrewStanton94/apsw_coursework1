@@ -16,11 +16,11 @@ and open the template in the editor.
 	    <ui:composition>
                 <h:outputStylesheet name="css/styles.css"/>
                 <div class = "header"> 
-                <h:commandButton action="#{sessionCtrl.gotoView}" value="Dashboard" />
+                <h:commandButton action="#{sessionCtrl2.gotoView}" value="Dashboard" />
                 <h:outputText value="Current User" /> <!--set as logged in user's name-->
                 
-                <h:commandButton action="#{sessionCtrl.gotoProfile}" value="View Profile"/>
-		<h:commandButton action="#{sessionCtrl.gotoEdit}" value="Logout" />
+                <h:commandButton action="#{sessionCtrl2.gotoProfile}" value="View Profile"/>
+		<h:commandButton action="#{sessionCtrl2.gotoEdit}" value="Logout" />
                 <h:button value="Dashboard_test" outcome="dashboardView.xhtml" />
                 
                 </div>

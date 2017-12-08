@@ -2,6 +2,8 @@ package groupa.apsw.coursework1.ent;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -13,6 +15,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Address implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String company;
     @NotNull
@@ -25,7 +28,6 @@ public class Address implements Serializable {
     private String postcode;
     @NotNull
     private String country;
-    @NotNull
     @OneToOne(mappedBy="address")
     private SystemUser resident;
 

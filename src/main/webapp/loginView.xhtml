@@ -13,11 +13,11 @@
         <ui:composition template="/WEB-INF/templates/masterTemplate.xhtml" >
             <ui:define name="content">
                 <h:form>
-                    <h:outputText value="#{sessionCtrl.su.username}" />
-                    <h:inputText value="#{sessionCtrl.givenUserName}" />
-                    <h:outputText value="#{sessionCtrl.su.password}" />
-                    <h:inputSecret value="#{sessionCtrl.givenPassword}" />
-                    <h:commandButton action="#{sessionCtrl.login}" value="Log in" />
+                    <h:outputText value="#{sessionCtrl2.su.username}" />
+                    <h:inputText value="#{sessionCtrl2.givenUserName}" />
+                    <h:outputText value="#{sessionCtrl2.su.password}" />
+                    <h:inputSecret value="#{sessionCtrl2.givenPassword}" />
+                    <h:commandButton action="#{sessionCtrl2.login}" value="Log in" />
                 </h:form>
 
 

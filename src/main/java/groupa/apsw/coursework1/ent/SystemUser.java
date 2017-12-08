@@ -2,7 +2,10 @@ package groupa.apsw.coursework1.ent;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -11,6 +14,7 @@ import javax.validation.constraints.Size;
  * @author alpha
  */
 @Entity
+@NamedQuery(name="SystemUser.findByUserName", query="SELECT su FROM SystemUser su WHERE su.username LIKE :userName")
 public class SystemUser implements Serializable {
 
     private Long id;
@@ -42,6 +46,7 @@ public class SystemUser implements Serializable {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

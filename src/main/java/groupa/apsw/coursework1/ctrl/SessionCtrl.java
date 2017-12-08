@@ -12,7 +12,7 @@ import javax.ejb.EJB;
  *
  * @author alpha
  */
-@Named(value = "sessionCtrl")
+@Named(value = "sessionCtrl2")
 @SessionScoped
 public class SessionCtrl implements Serializable {
 
@@ -90,6 +90,7 @@ public class SessionCtrl implements Serializable {
     }
 
     public String login() {
+        boolean valid = um.validUser();
         SystemUser su = um.mockUsers().get(0);
         boolean nameMatches = su.getUsername().equalsIgnoreCase(givenUserName);
         boolean passwordMatches = su.getPassword().equals(givenPassword);
