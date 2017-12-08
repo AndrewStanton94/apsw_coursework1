@@ -44,6 +44,7 @@ public class AppointmentManager {
     }
     
     public void add(Appointment appointment) {
+        af.create(appointment);
         appointments.add(appointment);
     }
     
