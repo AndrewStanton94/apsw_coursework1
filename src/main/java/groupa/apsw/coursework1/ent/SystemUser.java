@@ -1,11 +1,13 @@
 package groupa.apsw.coursework1.ent;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -33,6 +35,7 @@ public class SystemUser implements Serializable {
     private String phoneNumber;
     @NotNull
     private String email;
+    private List<Appointment> appointment;
 
     public SystemUser() {
     }
@@ -112,7 +115,13 @@ public class SystemUser implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
 
+    @ManyToMany(mappedBy = "attendee")
+    public List<Appointment> getAppointment() {
+        return appointment;
+    }
+
+    public void setAppointment(List<Appointment> appointment) {
+        this.appointment = appointment;
+    }
 }
