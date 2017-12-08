@@ -24,6 +24,11 @@ public class UserManager {
     public AddressFacade af;
 
     private List<SystemUser> users;
+    private SystemUser currentUser;
+
+    public SystemUser getCurrentUser() {
+        return currentUser;
+    }
 
     public List<SystemUser> getUsers() {
         return users;
@@ -31,7 +36,6 @@ public class UserManager {
 
     public UserManager() {
         users = new ArrayList<>();
-//        users = suf.findAll();
     }
 
     public List<SystemUser> mockUsers() {
@@ -58,14 +62,25 @@ public class UserManager {
         users.add(su);
     }
     
-    public boolean validUser(String username, String password){
+    public boolean isValidUser(String username, String password){
         TypedQuery<SystemUser> query = suf.getEntityManager().createNamedQuery("SystemUser.findByUserName", SystemUser.class);
         SystemUser su = query.setParameter("username", username).getSingleResult();
         System.out.println(su);
         if (su == null) {
+            currentUser = null;
             return false;
         } else {
-            return su.getPassword().equals(password);
+            if (su.getPassword().equals(password)) {
+                currentUser = su;
+                return true;
+            }
+            return false;
         }
+    }
+    
+    public SystemUser updateUser(SystemUser updatedUser){
+        currentUser = suf.edit(updatedUser);
+        users = suf.findAll();
+        return currentUser;
     }
 }

@@ -17,8 +17,9 @@ and open the template in the editor.
                 <h:outputStylesheet name="css/styles.css"/>
                 <div class = "header"> 
                 <h:commandButton action="#{sessionCtrl2.gotoView}" value="Dashboard" />
-                <h:outputText value="Current User" /> <!--set as logged in user's name-->
-                
+                <h:outputText value="Logged in as: " /> <!--set as logged in user's name-->
+                <h:outputText value="#{sessionCtrl2.su.firstName}" />
+                <h:outputText value="#{sessionCtrl2.su.lastName}" />
                 <h:commandButton action="#{sessionCtrl2.gotoProfile}" value="View Profile"/>
 		<h:commandButton action="#{sessionCtrl2.gotoEdit}" value="Logout" />
                 <h:button value="Dashboard_test" outcome="dashboardView.xhtml" />
