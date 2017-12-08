@@ -13,18 +13,41 @@
     <h:body>
         <ui:composition template="/WEB-INF/templates/masterTemplate.xhtml" >
             <ui:define name="content">
-                Hello from Facelets
-        <!--        <h:outputText value="#{sessionCtrl2.su.email}" />
-                <h:outputText value="#{sessionCtrl2.su.id}" />
-                
-                <h:outputText value="#{sessionCtrl2.su.address.city}" />
-                <h:outputText value="#{sessionCtrl2.su.address.company}" />
-                <h:outputText value="#{sessionCtrl2.su.address.country}" />
-                <h:outputText value="#{sessionCtrl2.su.address.county}" />
-                <h:outputText value="#{sessionCtrl2.su.address.firstLine}" />
-                <h:outputText value="#{sessionCtrl2.su.address.id}" />
-                <h:outputText value="#{sessionCtrl2.su.address.postcode}" />
-                <h:outputText value="#{sessionCtrl2.su.address.secondLine}" />-->
+
+
+                <h:outputLabel value="Logged in as: "/>
+                <h:outputText value="#{sessionCtrl2.currentUser.firstName}"/>
+
+                <h:form>
+                    <p:growl id="messages" showDetail="true" />
+
+                    <h:panelGrid columnClasses="value">
+                        <h3 style="margin-top: 0">Your diary</h3>
+                        <p:schedule id="schedule" value="#{scheduleView.eventModel}" widgetVar="myschedule" timeZone="GMT+2">
+
+                            <p:ajax event="dateSelect" listener="#{scheduleView.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                            <p:ajax event="eventSelect" listener="#{scheduleView.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                            <p:ajax event="eventMove" listener="#{scheduleView.onEventMove}" update="messages" />
+                            <p:ajax event="eventResize" listener="#{scheduleView.onEventResize}" update="messages" />
+
+                        </p:schedule>
+
+                        
+                    </h:panelGrid>
+
+                    <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
+                        <h:panelGrid id="eventDetails" columns="2">
+                            <p:outputLabel value="Create event here?" />
+                            <p:commandButton id="addButton" value="Confirm" actionListener="#{SessionCtrl.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
+                        </h:panelGrid>
+                    </p:dialog>    
+                </h:form>
+
+                <style type="text/css">
+                    .value {
+                        width: 1000px;
+                    }
+                </style>
 
                 <h:form >
                     <p:dataTable var="usr" value="#{sessionCtrl2.users}">
@@ -58,5 +81,5 @@
                 </h:form>
             </ui:define>
         </ui:composition>
-        </h:body>
+    </h:body>
 </html>
