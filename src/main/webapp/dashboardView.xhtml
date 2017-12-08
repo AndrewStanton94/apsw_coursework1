@@ -14,29 +14,28 @@
         <ui:composition template="/WEB-INF/templates/masterTemplate.xhtml" >
             <ui:define name="content">
 
-
                 <center>
                     <p:commandButton action="#{sessionCtrl2.gotoAddAppointment}" value="Create Event" />
                     <p:button outcome="lookupView.xhtml" value="Look Up User" />
                     <p:button outcome="lookupView.xhtml" value="My Appointments" />
 
+                    <h:form>
+                        <h:panelGrid columnClasses="value">
+                            <h3 style="margin-top: 0">Your diary</h3>
+                            <p:schedule id="schedule" value="#{sessionCtrl2.appointmentModel}" widgetVar="myschedule" timeZone="GMT">
 
-                <h:form>
-                    <h:panelGrid columnClasses="value">
-                        <h3 style="margin-top: 0">Your diary</h3>
-                        <p:schedule id="schedule" value="#{sessionCtrl2.appointmentModel}" widgetVar="myschedule" timeZone="GMT">
-                        </p:schedule>
-
-
-                    </h:panelGrid>
-
-                    <p:dialog widgetVar="eventDialog" header="Event Details" hideEffect="clip" showEffect="clip">
-                        <h:panelGrid id="eventDetails" columns="2">
-                            <p:outputLabel value="Add a new event?" />
-                            <h:commandButton id="addButton" value="Confirm" action="#{sessionCtrl2.gotoAddAppointment}"/>
+                                <p:ajax event="dateSelect" listener="#{sessionCtrl.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                                <p:ajax event="eventSelect" listener="#{sessionCtrl.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                            </p:schedule>
                         </h:panelGrid>
-                    </p:dialog>    
-                </h:form>
+
+                        <p:dialog widgetVar="eventDialog" header="Event Details" hideEffect="clip" showEffect="clip">
+                            <h:panelGrid id="eventDetails" columns="2">
+                                <p:outputLabel value="Add a new event?" />
+                                <h:commandButton id="addButton" value="Confirm" action="#{sessionCtrl2.gotoAddAppointment}"/>
+                            </h:panelGrid>
+                        </p:dialog>    
+                    </h:form>
                 </center>
 
                 <style type="text/css">

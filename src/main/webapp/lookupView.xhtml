@@ -18,7 +18,7 @@
                     <center>
                         <h:commandButton action="#{sessionCtrl2.gotoEdit}" value="Go to edit " />
                     </center>
-                    
+
                     <p:dataTable var="usr" value="#{sessionCtrl2.users}">
                         <f:facet name="header">
                             People
@@ -44,9 +44,9 @@
                             <h:outputText value="#{usr.email}" />
                         </p:column>
                     </p:dataTable>
-                    
+
                 </h:form>
             </ui:define>
         </ui:composition>
-        </h:body>
+    </h:body>
 </html>

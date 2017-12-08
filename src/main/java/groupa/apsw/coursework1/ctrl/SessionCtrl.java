@@ -29,21 +29,21 @@ public class SessionCtrl implements Serializable {
     private SystemUser su;
     private String givenUsername;
     private String givenPassword;
-    
+
     private ScheduleModel appointmentModel;
-    
+
     @PostConstruct
     public void init() {
         appointmentModel = new DefaultScheduleModel();
-        for(int i = 1; i < am.getAppointments().size(); i++) {
-        appointmentModel.addEvent(new DefaultScheduleEvent(am.getAppointments().get(i).getAppointmentName(), am.getAppointments().get(i).getStartTime(), am.getAppointments().get(i).getEndTime()));
+        for (int i = 1; i < am.getAppointments().size(); i++) {
+            appointmentModel.addEvent(new DefaultScheduleEvent(am.getAppointments().get(i).getAppointmentName(), am.getAppointments().get(i).getStartTime(), am.getAppointments().get(i).getEndTime()));
         }
     }
 
     public ScheduleModel getAppointmentModel() {
         return appointmentModel;
     }
-    
+
     public String getGivenUsername() {
         return givenUsername;
     }
@@ -63,8 +63,8 @@ public class SessionCtrl implements Serializable {
     public List<SystemUser> getUsers() {
         return um.getUsers();
     }
-    
-    public List<Appointment> getAppointments(){
+
+    public List<Appointment> getAppointments() {
         return am.getAppointments();
     }
 
@@ -85,7 +85,7 @@ public class SessionCtrl implements Serializable {
     public String gotoDashboard() {
         return "dashboardView";
     }
-    
+
     public String updateUser() {
         System.out.println(su.getFirstName());
         su = um.updateUser(su);
@@ -106,18 +106,18 @@ public class SessionCtrl implements Serializable {
         su = um.createEmptyUser();
         return "dashboardView";
     }
-    
+
     public String gotoAddAppointment() {
         return "createAppointmentView";
     }
-    
+
     public String gotoLookup() {
         return "lookupView";
     }
-    
+
     public String login() {
         boolean valid = um.isValidUser(givenUsername, givenPassword);
-        
+
         if (valid) {
             su = um.getCurrentUser();
             return "dashboardView";

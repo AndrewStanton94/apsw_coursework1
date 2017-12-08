@@ -19,7 +19,7 @@ public class AppointmentManager {
 
     @EJB
     public AppointmentFacade af;
-    
+
     private List<Appointment> appointments;
     private Appointment currentAppointment;
 
@@ -42,38 +42,38 @@ public class AppointmentManager {
     public void setCurrentAppointment(Appointment currentAppointment) {
         this.currentAppointment = currentAppointment;
     }
-    
+
     public void add(Appointment appointment) {
         appointments.add(appointment);
     }
-    
-    public Appointment updateAppointment(Appointment updatedAppointment){
+
+    public Appointment updateAppointment(Appointment updatedAppointment) {
         currentAppointment = af.edit(currentAppointment);
         appointments = af.findAll();
         return currentAppointment;
     }
- 
-    public List<Appointment> mockAppointments(List<SystemUser> users){
+
+    public List<Appointment> mockAppointments(List<SystemUser> users) {
         Collections.addAll(appointments,
-            new Appointment("Dinner",
-                    users.get(0),
-                    true,
-                    new Date(2017, 12, 8, 17, 0),
-                    new Date(2017, 12, 8, 18, 0)
-            ),
-            new Appointment("See friends",
-                    users.get(1),
-                    true,
-                    new Date(2017, 12, 9, 17, 0),
-                    new Date(2017, 12, 9, 20, 0)
-            )
+                new Appointment("Dinner",
+                        users.get(0),
+                        true,
+                        new Date(2017, 12, 8, 17, 0),
+                        new Date(2017, 12, 8, 18, 0)
+                ),
+                new Appointment("See friends",
+                        users.get(1),
+                        true,
+                        new Date(2017, 12, 9, 17, 0),
+                        new Date(2017, 12, 9, 20, 0)
+                )
         );
-        
+
         for (Appointment appointment : appointments) {
             af.create(appointment);
         }
-        
+
         return appointments;
-        
+
     }
 }

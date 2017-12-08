@@ -16,7 +16,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 public class Appointment implements Serializable {
-    
+
     private Long id;
     private String appointmentName;
     private SystemUser owner;
@@ -35,7 +35,7 @@ public class Appointment implements Serializable {
         this.startTime = startTime;
         this.endTime = endTime;
     }
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
@@ -96,6 +96,5 @@ public class Appointment implements Serializable {
     public void setAttendee(List<SystemUser> attendee) {
         this.attendee = attendee;
     }
-    
-    
+
 }
