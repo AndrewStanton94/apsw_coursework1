@@ -38,7 +38,7 @@
                     <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
                         <h:panelGrid id="eventDetails" columns="2">
                             <p:outputLabel value="Create event here?" />
-                            <p:commandButton id="addButton" value="Confirm" actionListener="#{SessionCtrl.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
+                            <h:commandButton id="addButton" value="Confirm" action="#{sessionCtrl2.gotoAddAppointment}"/>
                         </h:panelGrid>
                     </p:dialog>    
                 </h:form>

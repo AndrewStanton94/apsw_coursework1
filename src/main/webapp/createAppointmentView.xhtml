@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      >
+    <h:head>
+        <title>Create Appointment</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/templates/masterTemplate.xhtml" >
+            <ui:define name="content">
+                <h:outputStylesheet name="css/styles.css"/>
+
+                <h:form >
+                    <h:panelGrid columns="2" class = "heading2">
+                       
+                        <h2>Event Name: </h2>
+                        <h:inputText id="firstName" value="#{sessionCtrl2.su.firstName}" />
+
+                        <h2>Start Date: </h2>
+                        <h:inputText value="#{sessionCtrl2.su.lastName}" />
+
+                        <h2>Start Time: </h2>
+                        <h:inputText value="#{sessionCtrl2.su.password}" />
+                        
+
+                        <h2>End Date: </h2>
+                        <h:inputText value="#{sessionCtrl2.su.password}" />
+
+                        <h2>End Time: </h2>
+                        <h:inputText value="#{sessionCtrl2.su.password}" />
+                        
+                    </h:panelGrid>
+
+                </h:form>
+                <p:dataTable var="usr" value="#{sessionCtrl2.users}">
+                    <f:facet name="header">
+                        People
+                    </f:facet>
+
+                    <p:column headerText="username" sortBy="#{usr.username}">
+                        <h:outputText value="#{usr.username}" />
+                    </p:column>
+
+                    <p:column headerText="First name" sortBy="#{usr.firstName}">
+                        <h:outputText value="#{usr.firstName}" />
+                    </p:column>
+
+                    <p:column headerText="Last name" sortBy="#{usr.lastName}">
+                        <h:outputText value="#{usr.lastName}" />
+                    </p:column>
+
+                    <p:column headerText="Phone number" sortBy="#{usr.phoneNumber}">
+                        <h:outputText value="#{usr.phoneNumber}" />
+                    </p:column>
+
+                    <p:column headerText="Email" sortBy="#{usr.email}">
+                        <h:outputText value="#{usr.email}" />
+                    </p:column>
+
+                    <p:column headerText="Add to event" sortBy="#{usr.email}">
+                        <f:selectItem itemValue="1"/>
+                    </p:column>
+                </p:dataTable>
+                <h:commandButton action="#{sessionCtrl2.gotoDashboard}" value="Cancel" />
+                <h:commandButton action="#{sessionCtrl2.gotoDashboard}" value="Create appointment" />
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
