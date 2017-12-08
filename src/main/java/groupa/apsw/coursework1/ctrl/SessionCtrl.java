@@ -1,6 +1,8 @@
 package groupa.apsw.coursework1.ctrl;
 
+import groupa.apsw.coursework1.bus.AppointmentManager;
 import groupa.apsw.coursework1.bus.UserManager;
+import groupa.apsw.coursework1.ent.Appointment;
 import groupa.apsw.coursework1.ent.SystemUser;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -18,11 +20,11 @@ public class SessionCtrl implements Serializable {
 
     @EJB
     private UserManager um;
+    @EJB
+    private AppointmentManager am;
     private SystemUser su;
     private String givenUsername;
     private String givenPassword;
-    
-    private String givenAppointmentName;
 
     public String getGivenUsername() {
         return givenUsername;
@@ -43,29 +45,18 @@ public class SessionCtrl implements Serializable {
     public List<SystemUser> getUsers() {
         return um.getUsers();
     }
+    
+    public List<Appointment> getAppointments(){
+        return am.getAppointments();
+    }
 
     public SystemUser getSu() {
         return su;
     }
-    
-    
-    
-    public String getAppointmentName() {
-        return "";
-    }
-    
-    public void setAppointmentName(String givenAppointmentName) {
-        this.givenAppointmentName = givenAppointmentName;
-    }
-
-    /**
-     * Creates a new instance of SessionCtrl2
-     */
-    public SessionCtrl() {
-    }
 
     public String generateData() {
         um.mockUsers();
+        am.mockAppointments(um.getUsers());
         return "";
     }
 

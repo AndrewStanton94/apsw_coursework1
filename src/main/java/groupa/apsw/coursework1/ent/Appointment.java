@@ -25,6 +25,17 @@ public class Appointment implements Serializable {
     private Date endTime;
     private List<SystemUser> attendee;
 
+    public Appointment() {
+    }
+
+    public Appointment(String appointmentName, SystemUser owner, boolean cancelled, Date startTime, Date endTime) {
+        this.appointmentName = appointmentName;
+        this.owner = owner;
+        this.cancelled = cancelled;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
