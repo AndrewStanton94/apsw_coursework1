@@ -16,15 +16,13 @@ and open the template in the editor.
 	    <ui:composition>
                 <h:outputStylesheet name="css/styles.css"/>
                 <div class = "header"> 
-                <h:commandButton action="#{sessionCtrl2.gotoDashboard}" value="Dashboard" />
-                <h:outputText value="Logged in as: " /> <!--set as logged in user's name-->
-                <h:outputText value="#{sessionCtrl2.su.firstName}" />
-                <h:outputText value=" " />
-                <h:outputText value="#{sessionCtrl2.su.lastName}" />
-                <h:commandButton action="#{sessionCtrl2.gotoProfile}" value="View Profile"/>
-		<h:commandButton action="#{sessionCtrl2.gotoEdit}" value="Logout" />
-                <h:button value="Dashboard_test" outcome="dashboardView.xhtml" />
+                <h:button value="Go to Dashboard" outcome="dashboardView.xhtml" />
+                <h:outputText value="     Logged in as: " /> <!--set as logged in user's name-->
+                <h:outputText value="#{sessionCtrl2.su.firstName} #{sessionCtrl2.su.lastName} (#{sessionCtrl2.su.username})    " />
                 
+                <h:button value="View Profile" outcome="editProfileView.xhtml" />
+                <h:button value="Logout" outcome="index.xhtml" />
+
                 </div>
                 <br />
                 <br />

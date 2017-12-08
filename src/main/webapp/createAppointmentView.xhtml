@@ -20,19 +20,15 @@
                        
                         <h2>Event Name: </h2>
                         <h:inputText id="firstName" value="#{sessionCtrl2.su.firstName}" />
-
-                        <h2>Start Date: </h2>
-                        <h:inputText value="#{sessionCtrl2.su.lastName}" />
-
-                        <h2>Start Time: </h2>
                         
+                        <h2>Creator: </h2>
+                        <h:outputText id="creatorName" value="#{sessionCtrl2.su.firstName} #{sessionCtrl2.su.lastName} (#{sessionCtrl2.su.username})" />
+
+                        <h2>Start: </h2>
                         <p:calendar value="#{item.dateFrom}" pattern="dd.MM.yyyy HH:mm" />
 
                         <h2>End Date: </h2>
                         <p:calendar value="#{item.dateFrom}" pattern="dd.MM.yyyy HH:mm" />
-
-                        <h2>End Time: </h2>
-                        <h:inputText value="#{sessionCtrl2.su.password}" />
                         
                     </h:panelGrid>
 

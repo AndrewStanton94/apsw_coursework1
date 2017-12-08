@@ -37,7 +37,7 @@
 
                     <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
                         <h:panelGrid id="eventDetails" columns="2">
-                            <p:outputLabel value="Create event here?" />
+                            <p:outputLabel value="Add a new event?" />
                             <h:commandButton id="addButton" value="Confirm" action="#{sessionCtrl2.gotoAddAppointment}"/>
                         </h:panelGrid>
                     </p:dialog>    
@@ -76,7 +76,8 @@
                             <h:outputText value="#{usr.email}" />
                         </p:column>
                     </p:dataTable>
-                    <h:commandButton action="#{sessionCtrl2.gotoEdit}" value="Go to edit " />
+                    
+                    <h:commandButton action="#{sessionCtrl2.gotoAddAppointment}" value="Create Event" />
                 </h:form>
             </ui:define>
         </ui:composition>

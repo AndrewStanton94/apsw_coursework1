@@ -21,6 +21,8 @@ public class SessionCtrl implements Serializable {
     private SystemUser su;
     private String givenUsername;
     private String givenPassword;
+    
+    private String givenAppointmentName;
 
     public String getGivenUsername() {
         return givenUsername;
@@ -44,6 +46,16 @@ public class SessionCtrl implements Serializable {
 
     public SystemUser getSu() {
         return su;
+    }
+    
+    
+    
+    public String getAppointmentName() {
+        return "";
+    }
+    
+    public void setAppointmentName(String givenAppointmentName) {
+        this.givenAppointmentName = givenAppointmentName;
     }
 
     /**
@@ -89,7 +101,7 @@ public class SessionCtrl implements Serializable {
     public String gotoAddAppointment() {
         return "createAppointmentView";
     }
-
+    
     public String login() {
         boolean valid = um.isValidUser(givenUsername, givenPassword);
         

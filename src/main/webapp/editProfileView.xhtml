@@ -12,8 +12,9 @@
     <h:body>
         <ui:composition template="/WEB-INF/templates/masterTemplate.xhtml" >
             <ui:define name="content">
-                Hello from Facelets
                 <h:form>
+                    
+                    <h:panelGrid columns="2" class = "heading2">
                     <h:inputText value="#{sessionCtrl2.su.id}" />
                     <h:inputText value="#{sessionCtrl2.su.firstName}" />
                     <h:inputText value="#{sessionCtrl2.su.lastName}" />
@@ -31,6 +32,7 @@
                     <h:inputText value="#{sessionCtrl2.su.address.postcode}" />
                     <h:inputText value="#{sessionCtrl2.su.address.id}" />
                     <h:commandButton action="#{sessionCtrl2.updateUser}" value="Save changes" />
+                    </h:panelGrid>
                 </h:form>
             </ui:define>
         </ui:composition>
