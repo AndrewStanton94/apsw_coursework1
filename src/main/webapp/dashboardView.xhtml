@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+<!--        <h:outputText value="#{sessionCtrl.su.email}" />
+        <h:outputText value="#{sessionCtrl.su.id}" />
+        
+        <h:outputText value="#{sessionCtrl.su.address.city}" />
+        <h:outputText value="#{sessionCtrl.su.address.company}" />
+        <h:outputText value="#{sessionCtrl.su.address.country}" />
+        <h:outputText value="#{sessionCtrl.su.address.county}" />
+        <h:outputText value="#{sessionCtrl.su.address.firstLine}" />
+        <h:outputText value="#{sessionCtrl.su.address.id}" />
+        <h:outputText value="#{sessionCtrl.su.address.postcode}" />
+        <h:outputText value="#{sessionCtrl.su.address.secondLine}" />-->
+        
+        <h:form >
+            <p:dataTable var="usr" value="#{sessionCtrl.users}">
+                <f:facet name="header">
+                    People
+                </f:facet>
+                
+                <p:column headerText="username" sortBy="#{usr.username}">
+                    <h:outputText value="#{usr.username}" />
+                </p:column>
+                
+                <p:column headerText="First name" sortBy="#{usr.firstName}">
+                    <h:outputText value="#{usr.firstName}" />
+                </p:column>
+                
+                <p:column headerText="Last name" sortBy="#{usr.lastName}">
+                    <h:outputText value="#{usr.lastName}" />
+                </p:column>
+                
+                <p:column headerText="Phone number" sortBy="#{usr.phoneNumber}">
+                    <h:outputText value="#{usr.phoneNumber}" />
+                </p:column>
+                
+                <p:column headerText="Email" sortBy="#{usr.email}">
+                    <h:outputText value="#{usr.email}" />
+                </p:column>
+            </p:dataTable>
+            <h:commandButton action="#{sessionCtrl.gotoEdit}" value="Go to edit " />
+            
+            <h:outputText value="#{sessionCtrl.currentUser.username}" />
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <h:form >
+            <h:messages />
+            <h:panelGrid columns="2" >
+                <h1>First name</h1>
+                <h:inputText id="firstName" value="#{sessionCtrl.su.firstName}" />
+
+                <h1>Last name</h1>
+                <h:inputText value="#{sessionCtrl.su.lastName}" />
+
+                <h1>password</h1>
+                <h:inputText value="#{sessionCtrl.su.password}" />
+                
+                <h1>Phone number</h1>
+                <h:inputText value="#{sessionCtrl.su.phoneNumber}" />
+                
+                <h1>Username</h1>
+                <h:inputText value="#{sessionCtrl.su.username}" />
+                
+                <h1>Email</h1>
+                <h:inputText value="#{sessionCtrl.su.email}" />
+
+                <h1>company</h1>
+                <h:inputText value="#{sessionCtrl.su.address.company}" />
+                
+                <h1>first line</h1>
+                <h:inputText value="#{sessionCtrl.su.address.firstLine}" />
+                
+                <h1>second line</h1>
+                <h:inputText value="#{sessionCtrl.su.address.secondLine}" />
+                
+                <h1>city</h1>
+                <h:inputText value="#{sessionCtrl.su.address.city}" />
+                
+                <h1>County</h1>
+                <h:inputText value="#{sessionCtrl.su.address.county}" />
+                
+                <h1>Country</h1>
+                <h:inputText value="#{sessionCtrl.su.address.country}" />
+                
+                <h1>Postcode</h1>
+                <h:inputText value="#{sessionCtrl.su.address.postcode}" />
+            </h:panelGrid>
+            <h:commandButton action="#{sessionCtrl.registerUser}" value="Save user" />
+
+        </h:form>
+    </h:body>
+</html>
+
